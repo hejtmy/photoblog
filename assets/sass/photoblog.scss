@@ -3,3 +3,11 @@ $primary-color:  {{.Site.Params.primaryColor | default "#7a8288" }} !default;
 body {
   color: $primary-color;
 }
+
+.post-preview > a {
+	color: black;
+	text-decoration: none;
+}
+.post-preview > a:hover {
+	color: grey;
+}
