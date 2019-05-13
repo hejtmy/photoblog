@@ -1,0 +1,7 @@
+.post-preview > a {
+	color: black;
+	text-decoration: none;
+}
+.post-preview > a:hover {
+	color: grey;
+}

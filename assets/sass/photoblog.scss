@@ -1,0 +1,5 @@
+@import "agency";
+$primary-color:  {{.Site.Params.primaryColor | default "#7a8288" }} !default;
+body {
+  color: $primary-color;
+}

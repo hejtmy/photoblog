@@ -1,0 +1,23 @@
+{{ define "main" }}
+<section class="page-section" id="services">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 col-md-10 mx-auto">
+				<h2 class="section-heading text-uppercase">Posts</h2>
+				{{ $paginator := .Paginate (where .Pages "Type" "blog") 5 }}
+				{{ range $paginator.Pages }}
+					<div class="post-preview">
+						<a href="{{ .RelPermalink }}">
+							<h2>{{ .Title }}</h2>
+							<h3>{{ .Description}}</h3>
+						</a>
+					</div>
+				{{ end }}
+				{{ template "_internal/pagination.html" . }}
+			</div>
+		</div>
+		<div class="row text-center">
+		</div>
+	</div>
+</section>
+{{end}}

@@ -2,4 +2,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="{{"css/bootstrap.min.css" | relURL}}" rel="stylesheet">
-<link href="{{"css/agency.min.css" | relURL}}" rel="stylesheet">
+{{ $sassTemplate := resources.Get "sass/photoblog.scss" }}
+{{ $style := $sassTemplate | resources.ExecuteAsTemplate "main.scss" . | resources.ToCSS | resources.Minify | resources.Fingerprint }}
+<link rel="stylesheet" href="{{ $style.Permalink }}" integrity="{{ $style.Data.Integrity }}" >
+
