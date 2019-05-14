@@ -1,8 +1,12 @@
 <div class="album-thumbnail col-md-3 col-lg-4">
-	<a href="{{ .RelPermalink }}">
-		<img src="{{.Params.thumbnail|relURL}}"/>
-		<div class="album-thumbnail-text-holder">
-			<p>{{.Title}}</p>
-	</div>
-	</a>
+		{{if $.Site.Params.imageService}}
+			{{$path := printf "%s%s" $.Site.Params.imagesBaseLink .Params.thumbnail}}
+			{{.Scratch.Set "imgurl" $path}}
+		{{end}}
+		<a href="{{ .RelPermalink }}">
+			<img src="{{.Scratch.Get "imgurl"}}"/>
+			<div class="album-thumbnail-text-holder">
+				<p>{{.Title}}</p>
+			</div>
+		</a>
 </div>
