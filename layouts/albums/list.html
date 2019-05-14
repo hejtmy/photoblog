@@ -1,3 +1,13 @@
 {{ define "main" }}
- This is an album list
+<section class="page-section">
+		<div class="container">
+			<div class="row">
+				{{ range .Pages }}
+					{{partial "album-thumb" .}}
+				{{ end }}
+			</div>
+			<div class="row text-center">
+			</div>
+		</div>
+	</section>
 {{end}}
